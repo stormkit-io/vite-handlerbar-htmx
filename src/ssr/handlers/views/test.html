@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Name Table</title>
+  </head>
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <body>
+    <h1>Name Table</h1>
+    <table border="1">
+      <tr>
+        <th>Words</th>
+      </tr>
+      {{#each words}}
+        {{#if @last}}
+        <tr hx-get="/foo/contacts/?page={{../nextPage}}" hx-trigger="revealed" hx-swap="afterend">
+          <td> *** {{this}} *** {{../nextPage}}  </td>
+        </tr>
+        {{else}}
+          <tr> <td> {{this}}  </td> </tr>
+        {{/if}}
+      {{/each}}
+    </table>
+  </body>
+</html>
