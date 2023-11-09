@@ -58,8 +58,8 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: 'src/ssr/views/**', // Adjust the source pattern according to your project structure
-          dest: "../.stormkit/server/views/",
+          src: 'src/ssr/handlers/views/**', // Adjust the source pattern according to your project structure
+          dest: "../.stormkit/server/ssr/handlers/views/",
         },
         {
           src: "public/**",

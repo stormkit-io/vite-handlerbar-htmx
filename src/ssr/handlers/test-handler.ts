@@ -5,7 +5,7 @@ import Handlebars from "handlebars";
 
 export function testHandler(params): Response {
   const currentFile = import.meta.url;
-  const page = params['query']['page'] * 1 || 1
+  const page = params?.query?.page * 1 || 1
   const words = generateRandomStrings(10)
   // return only partial html
   let contents = ''
