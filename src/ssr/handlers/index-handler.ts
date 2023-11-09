@@ -1,6 +1,6 @@
 import { Response } from "../render";
 import fs from "fs";
-import path from "path"; // import template from "./views/test.html";
+import path from "path";
 import Handlebars from "handlebars";
 
 export function indexHandler(_): Response {

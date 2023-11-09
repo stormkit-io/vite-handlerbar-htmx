@@ -1,5 +1,3 @@
-// import * as nunjucks from "nunjucks";
-// import nunjucks from "nunjucks";
 import { pathToRegexp } from "path-to-regexp";
 import { testHandler } from "./handlers/test-handler";
 import { indexHandler } from "./handlers/index-handler";
@@ -11,7 +9,7 @@ const routes = [
 ];
 
 function middleware1(_params) {
-  // console.log('Middleware 1');
+  // write you middleware
 }
 
 const middlewares = [middleware1];
@@ -63,14 +61,11 @@ export const Render = (url: string): Response => {
     const keys = [];
     const pattern = pathToRegexp(route.path, keys);
     const match = pattern.exec(url);
-    console.log('match', match)
-    console.log('keys', keys)
     if (match) {
       keys.forEach((key, index) => {
         params[key.name] = match[index + 1];
       });
 
-  console.log('params', params)
       middlewares.forEach(middleware => middleware(params));
       res = route.handler(params);
       break;
